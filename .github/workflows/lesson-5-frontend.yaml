@@ -34,7 +34,7 @@ jobs:
     defaults:
       run:
         working-directory: frontend    
-    name: Execute the PyCharm security test 
+    name: Execute the ZAP security test 
     steps:
       - name: ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.15.0
