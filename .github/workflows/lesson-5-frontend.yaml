@@ -28,3 +28,16 @@ jobs:
         run: zip -r deploy.zip build Dockerfile
       - name: '**PLACEHOLDER** Deploy to Elastic Beanstalk'
         run: echo Placeholder for Deployment
+  security_test:
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend    
+    name: Execute the PyCharm security test 
+    steps:
+      - name: ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.15.0
+        with:
+          target: 'http://hungryhippo.quantic.host'  # Replace with actual URL
+          rules_file_name: 'baseline-rules.txt'
