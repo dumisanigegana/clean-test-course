@@ -6,7 +6,6 @@ on:
       - lesson-5
 jobs:
   security_test:
-  build_and_test:
     runs-on: ubuntu-latest
     defaults:
       run:
